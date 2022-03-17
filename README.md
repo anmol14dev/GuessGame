@@ -1,7 +1,7 @@
 # GuessGame
 
 
-![image](https://postimg.cc/zHZ1nPvm)
+![image](https://i.postimg.cc/zHZ1nPvm/Screenshot-1647533664.png)
 
 [url=https://postimg.cc/zHZ1nPvm] [img]https://i.postimg.cc/zHZ1nPvm/Screenshot-1647533664.png[/img][/url]
 
