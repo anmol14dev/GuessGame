@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gameScreenVM"
+            type="com.example.guessit.viewModel.GameScreenViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.GameScreenActivity">
+
+
+        <TextView
+            android:id="@+id/try_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tries_left_text"
+            android:textColor="@color/text"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/number_tries"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/number_tries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{` `+gameScreenVM.numberOftry}"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/text"
+            app:layout_constraintBottom_toTopOf="@+id/game_matrix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/try_text"
+            tools:text="3">
+
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/game_matrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_tries"
+
+            tools:itemCount="9"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/single_card_item"
+            tools:spanCount="3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

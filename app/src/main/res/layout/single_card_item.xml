@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="gridItem"
+            type="com.example.guessit.model.GameItemModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="center">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_value"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:clickable="false"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeColor="@color/primaryClr"
+            app:strokeWidth="2dp"
+            android:visibility="@{gridItem.visible? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/number_present"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_margin="4dp"
+                    android:text="@{gridItem.value}"
+                    tools:text="100"
+                    android:textColor="@color/primaryClr" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_overlap"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:visibility="@{gridItem.visible? View.VISIBLE : View.GONE}"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="4dp"
+            app:cardBackgroundColor="@color/primaryClr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

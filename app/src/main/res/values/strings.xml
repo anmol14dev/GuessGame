@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Guess It</string>
+    <string name="tries_left_text">Number of Try</string>
+    <string name="win_title">Congratulations!!!</string>
+    <string name="win_msg">You have guessed the right spot</string>
+    <string name="play_again">Play Again</string>
+    <string name="retry">retry</string>
+    <string name="exit">exit</string>
+    <string name="reset">reset</string>
+    <string name="lost_title">You have lost!</string>
+    <string name="lost_msg">You can either retry or reset the game</string>
+    <string name="welcome">Welcome! Please enter your number below.</string>
+    <string name="generate">Generate</string>
+
+</resources>
