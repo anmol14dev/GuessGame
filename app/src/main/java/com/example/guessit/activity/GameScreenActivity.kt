@@ -21,7 +21,11 @@ class GameScreenActivity : AppCompatActivity(), RecycleViewClickListener {
     private lateinit var userInputString : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game_screen)
+        init()
+        createAdapter(gameScreenViewModel.gameGrid)
+        notifyDataSetChanged()
+    }
+    fun init(){
         gameScreenBinding=DataBindingUtil.setContentView(this,R.layout.activity_game_screen)
         gameScreenViewModel=ViewModelProvider(this).get(GameScreenViewModel::class.java)
         gameScreenBinding.gameMatrix.layoutManager= GridLayoutManager(this,3)
@@ -29,12 +33,10 @@ class GameScreenActivity : AppCompatActivity(), RecycleViewClickListener {
         if(gameScreenViewModel.gameGrid==null) {
             gameScreenViewModel.userInput=userInputString.toInt()
             gameScreenViewModel.generateGrid()
-
         }
         gameScreenBinding.lifecycleOwner=this
         gameScreenBinding.gameScreenVM=gameScreenViewModel
-        createAdapter(gameScreenViewModel.gameGrid)
-        notifyDataSetChanged()
+
     }
     fun resetGame(){
         var intent= Intent(this,UserInputActivity::class.java)
